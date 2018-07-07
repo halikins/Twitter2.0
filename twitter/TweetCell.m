@@ -102,34 +102,34 @@
 }
 
 
-
+//UNKNOWN AND UNNEEDED
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
 }
 
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
-    // Configure the view for the selected state
 
 
+// Configure the view for the selected state
 - (void)configureCell:(Tweet *)tweet {
     self.tweet = tweet;
     self.tweetUser.text = tweet.user.screenName;
     self.tweetAuthor.text = tweet.user.name;
     self.tweetDate.text = tweet.createdAtString;
     self.tweetText.text = tweet.text;
+    self.tweetFavorite.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
+    self.tweetRetweet.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
     self.tweetPhoto.image = nil;
-//    [self.tweetPhoto setImageWithURL:tweet.user.profileURL];
-//    self.tweetFavorite.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
-//    self.tweetRetweet.text = [NSString stringWithFormat:@"%d",tweet.retweetCount];
-//    self.tweetReply.text = [NSString stringWithFormat:@"%@", tweet.idStr];
+    [self.tweetPhoto setImageWithURL:tweet.user.profileURL];
 }
 
 //REFRESH DATA AFTER FAVORITING OR RETWEETING
 - (void)refreshData {
     self.tweetFavorite.text = [NSString stringWithFormat:@"%d", (self.tweet.favoriteCount)];
-    self.tweetRetweet.text = [NSString stringWithFormat:@"%d@", (self.tweet.retweeted)];
+    self.tweetRetweet.text = [NSString stringWithFormat:@"%d@", (self.tweet.retweetCount)];
 }
 @end

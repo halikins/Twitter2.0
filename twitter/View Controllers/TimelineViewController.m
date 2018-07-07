@@ -29,7 +29,7 @@
     self.homeTimeline.dataSource = self;
     self.homeTimeline.delegate = self;
     //******************
-    self.homeTimeline.rowHeight = 125;
+    self.homeTimeline.rowHeight = UITableViewAutomaticDimension;
     //******************
     // Get timeline
     [self fetchTweets];
